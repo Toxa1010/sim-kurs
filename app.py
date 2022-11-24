@@ -7,7 +7,7 @@ import datetime
 def check_internet_connection(ip_address: str = "google.com") -> str:
     response = os.popen(f"ping {ip_address}").read()
 
-    if ("ЋвўҐв" or " зЁб«®") in response:
+    if "Ping" in response:
         return "Данный компьютер подключен к интернету"
 
     return "Данный компьютер не подключен к интернету"
