@@ -27,7 +27,7 @@ def check_for_firewall() -> str:
     if is_firewall_enabled == 1:
         return "Фаервол Windows Defender установлен"
 
-    return "Фаервол Windows Defender установлен"
+    return "Фаервол Windows Defender не установлен"
 
 
 def firewall_activity(ip_address: str = "https://www.google.com/") -> str:
