@@ -86,7 +86,7 @@ def show_results(results: set) -> str:
         return results_string
 
     for result in results:
-        results_string += f"{i} - {result}\n"
+        results_string += f"{i}. {result}\n"
         i += 1
 
     return results_string
@@ -112,14 +112,15 @@ if __name__ == "__main__":
     results = set()
 
     print(
-        """1. Проверка наличия подключения к интернету
-2. Проверка наличия установленного межсетевого экрана
-3. Проверка работоспособности межсетевого экрана
-4. Проверка наличия установленного антивируса
-5. Проверка работоспособности антивирусного ПО
-6. Вывести результаты
-7. Сохранить результаты в файл
-8. Выйти из программы"""
+        """Доступные команды: 
+1 - Проверка наличия подключения к интернету
+2 - Проверка наличия установленного межсетевого экрана
+3 - Проверка работоспособности межсетевого экрана
+4 - Проверка наличия установленного антивируса
+5 - Проверка работоспособности антивирусного ПО
+6 - Вывести результаты
+7 - Сохранить результаты в файл
+exit - Выйти из программы"""
     )
 
     while program_is_working:
@@ -137,8 +138,8 @@ if __name__ == "__main__":
                 print(firewall_activity())
             case "4":
                 arg = str(input("Введите наименование Вашего антивируса: "))
-                if not arg.strip():
-                    print("Не был введено наименование антивируса")
+                if not len(arg.strip()):
+                    print("Введено пустое значение")
                     continue
                 results.add(check_for_antivirus(arg))
                 print(check_for_antivirus(arg))
@@ -149,7 +150,7 @@ if __name__ == "__main__":
                 print(show_results(results))
             case "7":
                 write_results(show_results(results))
-            case "8":
+            case "exit":
                 print("Был произведен выход из программы")
                 program_is_working = False
             case _:
